@@ -3,6 +3,7 @@ import { Categories } from "@/components/sections/Categories";
 import { FeaturedCourse } from "@/components/sections/FeaturedCourse";
 import { Hero } from "@/components/sections/Hero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { Testimonial } from "@/components/sections/Testimonial";
 import { headerActions, mainNav } from "@/data/content";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <Categories />
         <FeaturedCourse />
         <HowItWorks />
+        <Testimonial />
       </main>
     </>
   );
