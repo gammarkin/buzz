@@ -18,7 +18,7 @@ export function Community() {
           <Eyebrow>{community.eyebrow}</Eyebrow>
           <h2
             id="community-title"
-            className="mt-2 font-display text-h2-sm font-extrabold text-balance text-ink lg:text-h2"
+            className="mt-2 font-display text-h2-sm font-extrabold text-ink lg:text-h2"
           >
             {community.title}
           </h2>

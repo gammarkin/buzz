@@ -67,7 +67,9 @@ function HeroVisual() {
       </div>
 
       <div className="absolute top-1.5 left-0 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-badge lg:top-4 lg:-left-[22px]">
-        <span className="rounded-lg bg-brand-soft px-1 text-small font-bold text-brand">{hero.coursesCount}</span>
+        <span className="inline-flex h-8 items-center rounded-lg bg-brand-soft px-1 text-small font-bold text-brand">
+          {hero.coursesCount}
+        </span>
         <span className="text-small text-ink">expert-led courses</span>
       </div>
 

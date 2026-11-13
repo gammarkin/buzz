@@ -27,11 +27,11 @@ export function Testimonial() {
           </figcaption>
         </figure>
 
-        <ul className="grid grid-cols-3 gap-0 lg:w-[401px] lg:shrink-0 lg:grid-cols-1 lg:gap-5 lg:border-l lg:border-line lg:pl-12">
+        <ul className="grid grid-cols-3 gap-0 lg:w-[401px] lg:shrink-0 lg:grid-cols-1 lg:gap-[17px] lg:border-l lg:border-line lg:pl-12">
           {stats.map((stat) => (
             <li key={stat.label}>
               <p className="font-display text-display-sm font-extrabold text-brand lg:text-display">{stat.value}</p>
-              <p className="mt-px pr-2 text-small text-muted">{stat.label}</p>
+              <p className="mt-1 pr-2 text-small text-muted">{stat.label}</p>
             </li>
           ))}
         </ul>

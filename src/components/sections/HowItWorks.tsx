@@ -17,7 +17,7 @@ export function HowItWorks() {
           align="center"
         />
 
-        <div className="relative mt-10 [--gap:2.5rem] md:py-7 lg:mt-20 lg:[--gap:5rem]">
+        <div className="relative mt-10 [--gap:2.5rem] md:py-7 lg:mt-[77px] lg:[--gap:5rem]">
           {/* Horizontal connector running behind the step icons */}
           <span
             aria-hidden="true"
@@ -40,8 +40,9 @@ function StepItem({ step, isLast }: StepItemProps) {
   return (
     <li className="relative">
       <StepBadge icon={step.icon} />
-      <p className="mt-6 text-eyebrow text-body uppercase">Step {step.number}</p>
-      <h3 className="mt-2 font-display text-h3-sm font-bold text-ink lg:text-h3">{step.title}</h3>
+      {/* The 1–2px bottom paddings mirror the design's text frames, which are slightly taller than the text. */}
+      <p className="mt-6 pb-px text-eyebrow text-body uppercase">Step {step.number}</p>
+      <h3 className="mt-2 pb-0.5 font-display text-h3-sm font-bold text-ink lg:pb-px lg:text-h3">{step.title}</h3>
       <p className="mt-3 text-small text-body lg:text-copy">{step.description}</p>
       {!isLast && (
         <span
@@ -68,7 +69,8 @@ function StepBadge({ icon }: StepBadgeProps) {
   if (icon === "experience") {
     return (
       <div aria-hidden="true" className="relative size-14">
-        <span className="absolute -top-px left-0 size-14 rotate-12 rounded-lg bg-peach" />
+        {/* The mobile frame uses a translucent coral here, the desktop frame a solid peach. */}
+        <span className="absolute -top-px left-0 size-14 rotate-12 rounded-lg bg-coral/15 md:bg-peach" />
         <span className="absolute top-6 left-6 size-7 rounded-full bg-coral" />
       </div>
     );

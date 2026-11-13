@@ -35,8 +35,9 @@ export function Categories() {
 type CategoryCardProps = { category: Category };
 
 function CategoryCard({ category }: CategoryCardProps) {
+  // Bottom padding is 2px shorter than the sides: in the design the "Explore" row overflows its 44px frame.
   return (
-    <article className="group relative flex w-full flex-col rounded-2xl border border-line bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-card focus-within:border-brand/40 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:min-h-[265px] lg:p-7">
+    <article className="group relative flex w-full flex-col rounded-2xl border border-line bg-white p-6 pb-[22px] transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-card focus-within:border-brand/40 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:min-h-[265px] lg:p-7 lg:pb-[26px]">
       <span className="mb-[21px] self-start rounded-md bg-brand-soft px-2 py-1 text-eyebrow text-brand">
         {category.number}
       </span>
@@ -45,7 +46,7 @@ function CategoryCard({ category }: CategoryCardProps) {
 
       <Link
         href={category.href}
-        className="mt-auto flex items-center gap-2 pt-5 text-small font-bold text-ink after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-brand"
+        className="mt-auto flex items-center gap-2 pt-[22px] text-small font-bold text-ink after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-brand"
       >
         Explore<span className="sr-only"> {category.title} courses</span>
         <ArrowRightIcon className="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none" />

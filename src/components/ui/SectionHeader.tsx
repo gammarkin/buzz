@@ -30,7 +30,7 @@ export function SectionHeader({
       <h2
         id={id}
         className={cn(
-          "mt-4 font-display text-h2-sm font-extrabold text-balance lg:text-h2",
+          "mt-4 font-display text-h2-sm font-extrabold lg:text-h2",
           tone === "light" ? "text-white" : "text-ink",
         )}
       >
