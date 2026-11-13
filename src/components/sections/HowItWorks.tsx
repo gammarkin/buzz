@@ -68,7 +68,7 @@ function StepBadge({ icon }: StepBadgeProps) {
   if (icon === "experience") {
     return (
       <div aria-hidden="true" className="relative size-14">
-        <span className="absolute -top-1.5 -left-[5px] size-[66px] rounded-lg bg-peach" />
+        <span className="absolute -top-px left-0 size-14 rotate-12 rounded-lg bg-peach" />
         <span className="absolute top-6 left-6 size-7 rounded-full bg-coral" />
       </div>
     );

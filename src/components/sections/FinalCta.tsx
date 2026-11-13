@@ -14,10 +14,12 @@ import { finalCta, learnerAvatars } from "@/data/content";
 import { cn } from "@/lib/cn";
 
 type Decoration = {
-  /** Position on the 1280px artboard: x as a percentage of the width, y in px. */
+  /** Unrotated top-left corner on the 1280px artboard: x becomes a percentage of the width, y stays in px. */
   x: number;
   y: number;
   size: number;
+  /** Clockwise rotation in degrees, around the shape's center. */
+  rotate?: number;
   className?: string;
   icon?: ComponentType<IconProps>;
 };
@@ -28,11 +30,11 @@ const decorations: Decoration[] = [
   { x: 22, y: 16, size: 108, className: "rounded-full border-2 border-peach" },
   { x: 56, y: 373, size: 120, className: "rounded-full bg-peach" },
   { x: 1064, y: 468, size: 40, className: "rounded-full bg-peach" },
-  { x: 1144, y: -24, size: 136, className: "rounded-lg bg-peach" },
-  { x: -33, y: 230, size: 66, className: "rounded-lg bg-peach" },
+  { x: 1154.5, y: -13.5, size: 115, rotate: 12, className: "rounded-lg bg-peach" },
+  { x: -28, y: 235, size: 56, rotate: 12, className: "rounded-lg bg-peach" },
   { x: 1208, y: 429, size: 32, className: "rounded-full border-2 border-peach" },
   { x: 877, y: 43, size: 32, className: "rounded-full border-2 border-peach" },
-  { x: 317, y: 42, size: 66, className: "rounded-lg border border-peach" },
+  { x: 322, y: 47, size: 56, rotate: 12, className: "rounded-lg border border-peach" },
   { x: 272, y: 360, size: 101, icon: BoldIcon },
   { x: 1120, y: 220, size: 80, icon: CodepenIcon },
   { x: 141, y: 214, size: 32, icon: ChatFilledIcon },
@@ -47,12 +49,13 @@ export function FinalCta() {
       className="relative isolate overflow-hidden bg-butter py-[60px] lg:py-[100px]"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hidden lg:block">
-        {decorations.map(({ x, y, size, className, icon: Icon }) => {
+        {decorations.map(({ x, y, size, rotate, className, icon: Icon }) => {
           const style: CSSProperties = {
             left: `${(x / ARTBOARD_WIDTH) * 100}%`,
             top: y,
             width: size,
             height: size,
+            rotate: rotate ? `${rotate}deg` : undefined,
           };
           return Icon ? (
             <Icon key={`${x}-${y}`} style={style} className="absolute text-peach" />
