@@ -61,6 +61,10 @@ Some details in the Figma file were inconsistent or missing, so I made these cho
 
 - The mobile contact form copy is in Portuguese, but the rest of the page is in English. I used English everywhere.
 - All three desktop steps read "Step 01". I numbered them 01/02/03, as in the mobile frame.
+- The desktop and mobile frames disagree in a few places:
+  - Step 2 copy: mobile adds "actually". I used the desktop copy.
+  - Step 2 icon: solid peach on desktop, translucent coral on mobile. Each breakpoint follows its own frame.
+  - "The people" paragraph: grey on desktop, dark on mobile. I used grey on both.
 - The "Meet international students & teachers" paragraph is lorem ipsum. I replaced it with real copy of similar length.
 - Two color pairs from the design are 4.45:1, just below WCAG AA (4.5:1): `#e7e7ec` on the blue section and `#6d7384` on the cream background. Those instances use white and `#656770` (both already in the palette) instead.
 - The open state of the mobile menu isn't designed. It opens as a dropdown panel with the nav links and both actions. Escape closes it and returns focus to the toggle, and it also closes on link click or when the viewport reaches desktop width.
@@ -89,7 +93,7 @@ Lighthouse 13.6 on the live preview (Vercel):
 
 Mobile (simulated slow 4G, 4× CPU): LCP 2.3 s, CLS 0, TBT around 100–270 ms depending on machine load. On a local production build (`npm run build && npm start`), the mobile score is 92–94 with an LCP of about 3.0 s.
 
-Checked manually at 402, 768, 1024 and 1280px in Chrome. I compared each section's rendered height against its Figma frame; most land within 0–8px, and the gaps are explained under "Design interpretations". I also tested keyboard navigation and the whole form flow (empty submit, invalid email, success). The unit tests cover the shared validation rules.
+For visual fidelity, I exported every section from Figma as PNG and compared it side by side with a headless Chrome screenshot of the same section at 402 and 1280px. This caught details that measurements alone missed, such as the 12° rotated shapes and heading line breaks. Most section heights now match the frames exactly or within 1–4px. I also checked 768 and 1024px manually. I also tested keyboard navigation and the whole form flow (empty submit, invalid email, success). The unit tests cover the shared validation rules.
 
 ## Known gaps
 
