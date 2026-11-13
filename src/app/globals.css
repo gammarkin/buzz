@@ -21,6 +21,9 @@
   --color-mustard: #e9d659;
   --color-mist: #e7e7ec;
   --color-fog: #9e9faa;
+  /* Not in the design: used for form validation messages. */
+  --color-danger: #c4302b;
+  --color-success: #1f7a4d;
 
   /* Type scale: "-sm" variants are the mobile styles from the design. */
   --text-display: 4rem;
