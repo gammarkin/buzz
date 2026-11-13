@@ -9,10 +9,24 @@ import { Hero } from "@/components/sections/Hero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Testimonial } from "@/components/sections/Testimonial";
 import { footer, headerActions, mainNav } from "@/data/content";
+import { site, siteUrl } from "@/lib/site";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: site.name,
+  url: siteUrl,
+  description: site.description,
+  email: site.email,
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <Header links={mainNav} login={headerActions.login} cta={headerActions.cta} />
       <main id="main">
         <Hero />

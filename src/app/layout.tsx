@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { site, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,29 +16,25 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-const description =
-  "Practical courses taught by people who do the work every day. Learn design, technology, business and more, one focused lesson at a time.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Luma | Build skills that actually move you forward",
-  description,
-  applicationName: "Luma",
+  title: site.title,
+  description: site.description,
+  applicationName: site.name,
   keywords: ["online courses", "product design", "technology", "business", "creative skills"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    siteName: "Luma",
-    title: "Luma | Build skills that actually move you forward",
-    description,
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
     url: "/",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luma | Build skills that actually move you forward",
-    description,
+    title: site.title,
+    description: site.description,
   },
 };
 
