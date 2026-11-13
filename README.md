@@ -2,6 +2,8 @@
 
 A responsive landing page for "Luma", an online learning platform, built from the supplied Figma design (desktop 1280px and mobile 402px frames).
 
+**Live preview:** https://buzz-gules-delta.vercel.app
+
 **Stack:** Next.js 16.4 (App Router, Turbopack, Cache Components) · React 19.3 · TypeScript (strict) · Tailwind CSS 4.3 · Vitest
 
 ## Getting started
@@ -78,21 +80,22 @@ Some details in the Figma file were inconsistent or missing, so I made these cho
 
 ## Results
 
-Lighthouse 13.6 on a local production build (`npm run build && npm start`):
+Lighthouse 13.6 on the live preview (Vercel):
 
 |         | Performance | Accessibility | Best Practices | SEO |
 | ------- | ----------- | ------------- | -------------- | --- |
 | Desktop | 100         | 100           | 100            | 100 |
-| Mobile  | 92–94       | 100           | 100            | 100 |
+| Mobile  | 93          | 100           | 100            | 100 |
 
-Mobile (simulated slow 4G, 4× CPU): LCP about 3.0 s, CLS 0, TBT 100–190 ms depending on machine load.
+Mobile (simulated slow 4G, 4× CPU): LCP 2.3 s, CLS 0, TBT around 100–270 ms depending on machine load. On a local production build (`npm run build && npm start`), the mobile score is 92–94 with an LCP of about 3.0 s.
 
 Checked manually at 402, 768, 1024 and 1280px in Chrome. I compared each section's rendered height against its Figma frame; most land within 0–8px, and the gaps are explained under "Design interpretations". I also tested keyboard navigation and the whole form flow (empty submit, invalid email, success). The unit tests cover the shared validation rules.
 
 ## Known gaps
 
 - There is no backend: the form submission is mocked.
-- Mobile LCP (about 3.0 s on simulated slow 4G) is mostly framework JavaScript and font bytes. Deploying behind a CDN and further trimming client JavaScript would be the next steps.
+- Mobile LCP (2.3 s live, about 3.0 s locally, on simulated slow 4G) is mostly framework JavaScript and font bytes. Further trimming client JavaScript would be the next step.
+- The live preview was deployed with the Vercel CLI and is not connected to the repository, so new commits are not deployed automatically.
 - Only Chromium browsers (Chrome, Edge) were tested. Safari and Firefox were not checked on real devices.
 - No Storybook. Tests cover the form logic only, not the components visually.
 - `inlineCss` is still an experimental Next.js flag.
