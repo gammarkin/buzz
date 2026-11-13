@@ -106,7 +106,7 @@ export function Header({ links, login, cta }: HeaderProps) {
                   <Link
                     href={link.href}
                     onClick={close}
-                    className="block py-3.5 text-body font-semibold text-ink hover:text-brand"
+                    className="block py-3.5 text-copy font-semibold text-ink hover:text-brand"
                   >
                     {link.label}
                   </Link>

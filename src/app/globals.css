@@ -60,8 +60,9 @@
   --text-lead-sm: 1rem;
   --text-lead-sm--line-height: 1.625rem;
 
-  --text-body: 1rem;
-  --text-body--line-height: 1.75rem;
+  /* Named "copy" so it doesn't clash with the "body" text color. */
+  --text-copy: 1rem;
+  --text-copy--line-height: 1.75rem;
 
   --text-small: 0.875rem;
   --text-small--line-height: 1.5rem;
