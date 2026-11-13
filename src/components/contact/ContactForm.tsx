@@ -172,7 +172,7 @@ function FormField({
       {multiline ? (
         <textarea
           {...shared}
-          rows={4}
+          rows={3}
           className={cn(controlClassName, stateClassName, "min-h-[100px] resize-y py-3.5 lg:min-h-[120px]")}
         />
       ) : (
