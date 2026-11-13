@@ -1,5 +1,14 @@
-/** Public URL used for canonical links, Open Graph and the sitemap. Set it per environment. */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+/**
+ * Public URL used for canonical links, Open Graph and the sitemap.
+ * Explicit config wins; on Vercel it falls back to the project's production domain.
+ */
+function resolveSiteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "http://localhost:3000";
+}
+
+export const siteUrl = resolveSiteUrl().replace(/\/$/, "");
 
 export const site = {
   name: "Luma",
