@@ -2,7 +2,7 @@
 
 A responsive landing page for "Luma", an online learning platform, built from the supplied Figma design (desktop 1280px and mobile 402px frames).
 
-**Live preview:** https://buzz-gules-delta.vercel.app
+**Live preview:** https://buzz-gules-delta.vercel.app (deployed on Vercel from `main` on every push)
 
 **Stack:** Next.js 16.4 (App Router, Turbopack, Cache Components) · React 19.3 · TypeScript (strict) · Tailwind CSS 4.3 · Vitest
 
@@ -94,9 +94,7 @@ Checked manually at 402, 768, 1024 and 1280px in Chrome. I compared each section
 ## Known gaps
 
 - There is no backend: the form submission is mocked.
-- Mobile LCP (2.3 s live, about 3.0 s locally, on simulated slow 4G) is mostly framework JavaScript and font bytes. Further trimming client JavaScript would be the next step.
-- The live preview was deployed with the Vercel CLI and is not connected to the repository, so new commits are not deployed automatically.
-- Only Chromium browsers (Chrome, Edge) were tested. Safari and Firefox were not checked on real devices.
+- Mobile LCP (2.3 s live, about 3.0 s locally, on simulated slow 4G) is mostly framework JavaScript and font bytes. Further trimming client JavaScript would be the next step.- Only Chromium browsers (Chrome, Edge) were tested. Safari and Firefox were not checked on real devices.
 - No Storybook. Tests cover the form logic only, not the components visually.
 - `inlineCss` is still an experimental Next.js flag.
 
