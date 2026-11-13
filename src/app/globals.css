@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Design tokens taken from the Figma file (Buzzvel FE - Test 2026). */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --color-cream: #f9f8f3;
+  --color-ink: #171b2c;
+  --color-body: #656770;
+  --color-muted: #6d7384;
+  --color-line: #dbdfeb;
+  --color-brand: #3157f6;
+  --color-brand-dark: #2445d1;
+  --color-brand-soft: #e2e8ff;
+  --color-sun: #ffee7e;
+  --color-sun-dark: #f5e05a;
+  --color-peach: #ffcb9f;
+  --color-coral: #ff704d;
+  --color-butter: #fff1c2;
+  --color-mustard: #e9d659;
+  --color-mist: #e7e7ec;
+  --color-fog: #9e9faa;
+
+  /* Type scale: "-sm" variants are the mobile styles from the design. */
+  --text-display: 4rem;
+  --text-display--line-height: 4.375rem;
+  --text-display--letter-spacing: -0.025em;
+  --text-display-sm: 2.5rem;
+  --text-display-sm--line-height: 2.75rem;
+  --text-display-sm--letter-spacing: -0.025em;
+
+  --text-cta: 3.5rem;
+  --text-cta--line-height: 4rem;
+  --text-cta--letter-spacing: -0.025em;
+  --text-cta-sm: 2.25rem;
+  --text-cta-sm--line-height: 2.5rem;
+  --text-cta-sm--letter-spacing: -0.025em;
+
+  --text-h2: 3rem;
+  --text-h2--line-height: 3.5rem;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h2-sm: 2rem;
+  --text-h2-sm--line-height: 2.25rem;
+  --text-h2-sm--letter-spacing: -0.025em;
+
+  --text-quote: 1.875rem;
+  --text-quote--line-height: 2.75rem;
+  --text-quote--letter-spacing: -0.025em;
+  --text-quote-sm: 1.25rem;
+  --text-quote-sm--line-height: 2rem;
+
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 2rem;
+  --text-h3-sm: 1.25rem;
+  --text-h3-sm--line-height: 1.75rem;
+
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.75rem;
+  --text-lead-sm: 1rem;
+  --text-lead-sm--line-height: 1.625rem;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.75rem;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5rem;
+
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.21875rem;
+
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1rem;
+  --text-eyebrow--letter-spacing: 0.12em;
+  --text-eyebrow--font-weight: 600;
+
+  --shadow-badge: 0 4px 24px rgb(0 0 0 / 0.1);
+  --shadow-card: 0 12px 32px rgb(23 27 44 / 0.04);
+  --shadow-photo: 0 0 3px rgb(0 0 0 / 0.07), 0 3px 5px -1px rgb(0 0 0 / 0.1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+  }
 }
