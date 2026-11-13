@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Categories } from "@/components/sections/Categories";
 import { FeaturedCourse } from "@/components/sections/FeaturedCourse";
 import { Hero } from "@/components/sections/Hero";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { headerActions, mainNav } from "@/data/content";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <Categories />
         <FeaturedCourse />
+        <HowItWorks />
       </main>
     </>
   );
