@@ -59,8 +59,7 @@ function HeroVisual() {
           src={hero.image.src}
           alt={hero.image.alt}
           fill
-          loading="eager"
-          fetchPriority="high"
+          preload
           placeholder="blur"
           sizes="(min-width: 1280px) 500px, (min-width: 1024px) 44vw, (min-width: 528px) 464px, calc(100vw - 56px)"
           className="object-cover"
