@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lockfile (overrides global ignore so installs are reproducible)
+!package-lock.json
