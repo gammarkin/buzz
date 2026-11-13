@@ -104,7 +104,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={pending}
-          className={cn(buttonBase, buttonVariants.primary, "w-full py-[13px] disabled:cursor-wait disabled:opacity-80")}
+          className={cn(buttonBase, buttonVariants.primary, "w-full disabled:cursor-wait disabled:opacity-80")}
         >
           {pending ? "Sending…" : "Send message"}
         </button>
@@ -173,7 +173,7 @@ function FormField({
         <textarea
           {...shared}
           rows={3}
-          className={cn(controlClassName, stateClassName, "min-h-[100px] resize-y py-3.5 lg:min-h-[120px]")}
+          className={cn(controlClassName, stateClassName, "min-h-[100px] resize-none py-3.5 lg:min-h-[120px]")}
         />
       ) : (
         <input

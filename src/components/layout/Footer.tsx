@@ -13,7 +13,7 @@ export function Footer({ tagline, columns, copyright }: FooterProps) {
   return (
     <footer className="bg-ink pt-[60px] pb-5 lg:pt-20 lg:pb-10">
       <Container>
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-[1fr_repeat(3,208px)] lg:gap-8">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-[1fr_repeat(3,208px)] lg:gap-8 xl:grid-cols-[416px_repeat(3,208px)]">
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link href="/" aria-label="Luma, back to top" className="flex w-fit rounded-sm text-white">
               <Logo aria-hidden />
@@ -45,7 +45,7 @@ export function Footer({ tagline, columns, copyright }: FooterProps) {
           })}
         </div>
 
-        <div className="mt-12 border-t border-body pt-6 lg:mt-16">
+        <div className="mt-9 border-t border-body pt-6 lg:mt-16">
           <p className="text-center text-caption text-white lg:text-left lg:text-mist">{copyright}</p>
         </div>
       </Container>

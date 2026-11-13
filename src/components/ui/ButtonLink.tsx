@@ -8,13 +8,14 @@ type ButtonLinkProps = ComponentPropsWithoutRef<typeof Link> & {
   variant?: ButtonVariant;
 };
 
+// Filled buttons are 52px tall; only the outlined one adds a 1px border (54px), as in the design.
 export const buttonBase =
-  "inline-flex items-center justify-center gap-2 rounded-lg border px-7 py-3.5 text-small font-bold whitespace-nowrap transition-colors duration-200 motion-reduce:transition-none";
+  "inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-small font-bold whitespace-nowrap transition-colors duration-200 motion-reduce:transition-none";
 
 export const buttonVariants: Record<ButtonVariant, string> = {
-  primary: "border-brand bg-brand text-white hover:border-brand-dark hover:bg-brand-dark",
-  secondary: "border-line bg-white text-ink hover:border-ink/40 hover:bg-cream",
-  accent: "border-sun bg-sun text-ink hover:border-sun-dark hover:bg-sun-dark",
+  primary: "bg-brand text-white hover:bg-brand-dark",
+  secondary: "border border-line bg-white text-ink hover:border-ink/40 hover:bg-cream",
+  accent: "bg-sun text-ink hover:bg-sun-dark",
 };
 
 /** Anchor styled as one of the design's buttons. */

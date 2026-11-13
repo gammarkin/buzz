@@ -59,7 +59,7 @@ export function FeaturedCourse() {
             </ButtonLink>
             <Link
               href={`#${sectionIds.courses}`}
-              className="group inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3.5 text-small font-bold text-white transition-colors hover:text-sun motion-reduce:transition-none"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg px-4 py-[13px] text-small font-bold text-white transition-colors hover:text-sun motion-reduce:transition-none"
             >
               Browse all courses
               <ArrowRightIcon className="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none" />
