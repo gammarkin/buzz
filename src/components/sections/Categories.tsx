@@ -45,7 +45,7 @@ function CategoryCard({ category }: CategoryCardProps) {
 
       <Link
         href={category.href}
-        className="mt-auto flex items-center gap-2 pt-6 text-small font-bold text-ink after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-brand"
+        className="mt-auto flex items-center gap-2 pt-5 text-small font-bold text-ink after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-brand"
       >
         Explore<span className="sr-only"> {category.title} courses</span>
         <ArrowRightIcon className="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none" />

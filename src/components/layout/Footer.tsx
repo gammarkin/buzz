@@ -15,7 +15,7 @@ export function Footer({ tagline, columns, copyright }: FooterProps) {
       <Container>
         <div className="grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-[1fr_repeat(3,208px)] lg:gap-8">
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <Link href="/" aria-label="Luma, back to top" className="inline-block rounded-sm text-white">
+            <Link href="/" aria-label="Luma, back to top" className="flex w-fit rounded-sm text-white">
               <Logo aria-hidden />
             </Link>
             <p className="mt-3 max-w-[240px] text-small text-fog max-lg:max-w-none">{tagline}</p>
@@ -28,7 +28,7 @@ export function Footer({ tagline, columns, copyright }: FooterProps) {
                 <h2 id={headingId} className="text-eyebrow text-mist uppercase">
                   {column.title}
                 </h2>
-                <ul className="mt-4 flex flex-col gap-3">
+                <ul className="mt-4 flex flex-col gap-3 text-small">
                   {column.links.map((link) => (
                     <li key={link.label}>
                       <Link

@@ -18,7 +18,7 @@ export function Contact() {
             <h2 id="contact-title" className="font-display text-h2-sm font-extrabold text-ink lg:text-h2">
               {contact.title}
             </h2>
-            <p className="text-small text-body lg:text-lead">{contact.description}</p>
+            <p className="text-small text-body md:text-lead-sm lg:text-lead">{contact.description}</p>
           </div>
 
           <ul className="flex flex-col gap-4">
