@@ -73,7 +73,7 @@ export function Header({ links, login, cta }: HeaderProps) {
           >
             {login.label}
           </Link>
-          <ButtonLink href={cta.href} className="px-5 py-2.5">
+          <ButtonLink href={cta.href} className="px-5 py-[9px]">
             {cta.label}
           </ButtonLink>
         </div>
