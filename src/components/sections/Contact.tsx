@@ -58,7 +58,7 @@ function ContactChannelCard({ channel }: ContactChannelCardProps) {
             {channel.detail}
           </a>
         ) : (
-          <p className="text-small text-muted">{channel.detail}</p>
+          <p className="text-small text-body">{channel.detail}</p>
         )}
       </div>
     </div>

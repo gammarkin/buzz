@@ -131,7 +131,7 @@ type FormFieldProps = {
 };
 
 const controlClassName =
-  "w-full rounded-lg border bg-cream px-4 text-small text-ink transition-colors placeholder:text-muted focus:bg-white focus:outline-none focus-visible:ring-3 motion-reduce:transition-none";
+  "w-full rounded-lg border bg-cream px-4 text-small text-ink transition-colors placeholder:text-body focus:bg-white focus:outline-none focus-visible:ring-3 motion-reduce:transition-none";
 
 function FormField({
   field,

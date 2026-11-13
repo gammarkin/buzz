@@ -46,7 +46,7 @@ export function FeaturedCourse() {
             {course.meta.map((item) => (
               <li
                 key={item}
-                className="rounded-lg border border-line px-3.5 py-1.5 text-small text-mist lg:text-white"
+                className="rounded-lg border border-line px-3.5 py-1.5 text-small text-white"
               >
                 {item}
               </li>
@@ -59,10 +59,10 @@ export function FeaturedCourse() {
             </ButtonLink>
             <Link
               href={`#${sectionIds.courses}`}
-              className="group inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3.5 text-small font-bold text-mist transition-colors hover:text-white motion-reduce:transition-none"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3.5 text-small font-bold text-white transition-colors hover:text-sun motion-reduce:transition-none"
             >
               Browse all courses
-              <ArrowRightIcon className="text-white transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none" />
+              <ArrowRightIcon className="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none" />
             </Link>
           </div>
         </div>

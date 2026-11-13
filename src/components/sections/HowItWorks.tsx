@@ -40,7 +40,7 @@ function StepItem({ step, isLast }: StepItemProps) {
   return (
     <li className="relative">
       <StepBadge icon={step.icon} />
-      <p className="mt-6 text-eyebrow text-muted uppercase">Step {step.number}</p>
+      <p className="mt-6 text-eyebrow text-body uppercase">Step {step.number}</p>
       <h3 className="mt-2 font-display text-h3-sm font-bold text-ink lg:text-h3">{step.title}</h3>
       <p className="mt-3 text-small text-body lg:text-copy">{step.description}</p>
       {!isLast && (
