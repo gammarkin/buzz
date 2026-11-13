@@ -92,6 +92,11 @@ export const mainNav: NavLink[] = [
   { label: "About", href: `#${sectionIds.howItWorks}` },
 ];
 
+export const headerActions = {
+  login: { label: "Log in", href: `#${sectionIds.contact}` },
+  cta: { label: "Start learning", href: `#${sectionIds.courses}` },
+} satisfies Record<string, NavLink>;
+
 export const learnerAvatars: Photo[] = [
   { src: avatar1, alt: "" },
   { src: avatar2, alt: "" },
