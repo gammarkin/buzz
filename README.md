@@ -98,7 +98,7 @@ Accessibility is 96 only because of the design's color contrast (see "Design fid
 
 Every text layer in both Figma frames (104 desktop, 98 mobile) was checked against the rendered page through the Figma API.
 
-For visual fidelity, I exported every section from Figma as PNG and compared it side by side with a headless Chrome screenshot of the same section at 402 and 1280px. This caught details that measurements alone missed, such as the 12° rotated shapes and heading line breaks. Most section heights now match the frames exactly or within 1–4px. I also checked 768 and 1024px manually. I also tested keyboard navigation and the whole form flow (empty submit, invalid email, success). The unit tests cover the shared validation rules.
+For visual fidelity, I exported every section from Figma as PNG and compared it side by side with a headless Chrome screenshot of the same section at 402 and 1280px. This caught details that measurements alone missed, such as the 12° rotated shapes and heading line breaks. Every section now has the same height as its Figma frame at both widths, including the fractional sizes Figma uses (for example 52.5px buttons and 722.44px sections). I also checked 768 and 1024px manually. I also tested keyboard navigation and the whole form flow (empty submit, invalid email, success). The unit tests cover the shared validation rules.
 
 ## Known gaps
 
