@@ -105,7 +105,7 @@ For visual fidelity, I exported every section from Figma as PNG and compared it 
 - There is no backend: the form submission is mocked.
 - Two color pairs from the design are below WCAG AA contrast (see "Design fidelity").
 - On small screens, the form placeholders show the desktop (English) copy until JavaScript loads.
-- Mobile LCP (2.3 s live, about 3.0 s locally, on simulated slow 4G) is mostly framework JavaScript and font bytes. Further trimming client JavaScript would be the next step.
+- Mobile LCP (2.2 s live, about 3.0 s locally, on simulated slow 4G) is mostly framework JavaScript and font bytes. Further trimming client JavaScript would be the next step.
 - No Storybook. Tests cover the form logic only, not the components visually.
 - `inlineCss` is still an experimental Next.js flag.
 
