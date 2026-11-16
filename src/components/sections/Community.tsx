@@ -51,7 +51,7 @@ type PhotoCollageProps = { columns: CollageColumn[] };
 function PhotoCollage({ columns }: PhotoCollageProps) {
   return (
     <div className="@container mx-auto w-full max-w-[362px] md:max-w-[530px] lg:mx-0">
-      <div className="relative flex h-[calc(var(--u)*310)] items-center justify-between [--u:calc(100cqw/362)] md:h-[calc(var(--u)*522)] md:justify-start md:gap-[calc(var(--u)*16)] md:[--u:calc(100cqw/530)]">
+      <div className="relative flex h-[calc(var(--u)*310)] items-center justify-between [--u:calc(100cqw/362)] md:h-[calc(var(--u)*522.44)] md:justify-start md:gap-[calc(var(--u)*16)] md:[--u:calc(100cqw/530)]">
         <span
           aria-hidden="true"
           className="absolute top-[calc(var(--u)*-9)] left-[calc(var(--u)*16)] size-[calc(var(--u)*330)] rounded-full bg-brand-soft md:top-[calc(var(--u)*11)] md:left-[calc(var(--u)*15)] md:size-[calc(var(--u)*500)]"

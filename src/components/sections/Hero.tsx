@@ -27,7 +27,7 @@ export function Hero() {
             </ButtonLink>
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-3 lg:justify-start">
+          <div className="mt-[30px] flex items-center justify-center gap-3 lg:mt-8 lg:justify-start">
             <AvatarStack avatars={learnerAvatars.slice(0, 3)} size={32} ringClassName="ring-cream" />
             <p className="text-small text-body">
               <strong className="font-bold text-ink">Trusted by {hero.learners}</strong> learners

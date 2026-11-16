@@ -13,7 +13,7 @@ export function FeaturedCourse() {
     <section
       id={sectionIds.featured}
       aria-labelledby="featured-title"
-      className="bg-brand py-[60px] lg:py-[100px]"
+      className="bg-brand pt-[61px] pb-[57px] lg:py-[100px]"
     >
       <Container className="grid items-center gap-[38px] lg:grid-cols-2 lg:gap-[60px]">
         <div className="relative">

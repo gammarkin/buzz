@@ -37,7 +37,7 @@ type CategoryCardProps = { category: Category };
 function CategoryCard({ category }: CategoryCardProps) {
   // Bottom padding is 2px shorter than the sides: in the design the "Explore" row overflows its 44px frame.
   return (
-    <article className="group relative flex w-full flex-col rounded-2xl border border-line bg-white p-6 pb-[22px] transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-card focus-within:border-brand/40 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:min-h-[265px] lg:p-7 lg:pb-[26px]">
+    <article className="group relative flex w-full flex-col rounded-2xl border border-line bg-white min-h-[227.19px] p-6 pb-[22px] transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-card focus-within:border-brand/40 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:min-h-[265px] lg:p-7 lg:pb-[26px]">
       <span className="mb-[21px] self-start rounded-md bg-brand-soft px-2 py-1 text-eyebrow text-brand">
         {category.number}
       </span>
