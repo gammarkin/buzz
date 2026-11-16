@@ -115,4 +115,4 @@ To check the results, I compared rendered element sizes in the browser against t
 
 ## Time spent
 
-About 1 hour of implementation with the AI assistant, plus time reviewing, testing on devices and writing this document.
+About 3 hours in total, spread over a few days. That covers implementation with the AI assistant, reviewing the code, comparing against the design and testing on devices.
