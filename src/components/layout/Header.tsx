@@ -7,14 +7,13 @@ import { CloseIcon, MenuIcon } from "@/components/ui/icons";
 import { Logo } from "@/components/ui/Logo";
 import type { NavLink } from "@/data/content";
 import { cn } from "@/lib/cn";
+import { DESKTOP_QUERY } from "@/lib/use-media-query";
 
 type HeaderProps = {
   links: NavLink[];
   login: NavLink;
   cta: NavLink;
 };
-
-const DESKTOP_QUERY = "(min-width: 64rem)";
 
 export function Header({ links, login, cta }: HeaderProps) {
   const [open, setOpen] = useState(false);

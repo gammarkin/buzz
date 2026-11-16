@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import type { ContactField } from "@/lib/contact";
 
 import alexMorgan from "@/assets/images/alex-morgan.jpg";
 import avatar1 from "@/assets/images/avatar-1.jpg";
@@ -80,6 +81,19 @@ export type ContactChannel = {
 };
 
 export type FooterColumn = { title: string; links: NavLink[] };
+
+/** Copy that differs between the mobile and desktop frames. */
+export type FrameCopy = { mobile: string; desktop: string };
+
+export type ContactFormCopy = {
+  title: string;
+  /** Language of the mobile copy: the mobile frame shows the form in Portuguese. */
+  mobileLang: string;
+  description: FrameCopy;
+  fields: Record<ContactField, { label: FrameCopy; placeholder: FrameCopy }>;
+  submit: FrameCopy;
+  sending: FrameCopy;
+};
 
 export const sectionIds = {
   courses: "courses",
@@ -300,6 +314,31 @@ export const contact = {
     { icon: "email", title: "Email", detail: "contact@luma.com", href: "mailto:contact@luma.com" },
     { icon: "clock", title: "Response Time", detail: "Up to 24 hours on business days" },
   ] satisfies ContactChannel[],
+};
+
+export const contactForm: ContactFormCopy = {
+  title: "Contact us",
+  mobileLang: "pt-BR",
+  description: {
+    mobile: "Preencha os campos e entraremos em contato.",
+    desktop: "Fill out the fields and we will get in touch.",
+  },
+  fields: {
+    name: {
+      label: { mobile: "Nome completo", desktop: "Full name" },
+      placeholder: { mobile: "Seu nome", desktop: "Your name" },
+    },
+    email: {
+      label: { mobile: "E-mail", desktop: "Email" },
+      placeholder: { mobile: "seuemail@exemplo.com", desktop: "youremail@example.com" },
+    },
+    message: {
+      label: { mobile: "Sua dúvida", desktop: "Your question" },
+      placeholder: { mobile: "Conte como podemos ajudar...", desktop: "Tell us how we can help..." },
+    },
+  },
+  submit: { mobile: "Enviar mensagem", desktop: "Send message" },
+  sending: { mobile: "Enviando…", desktop: "Sending…" },
 };
 
 export const finalCta = {

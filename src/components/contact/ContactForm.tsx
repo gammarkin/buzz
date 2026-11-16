@@ -3,6 +3,8 @@
 import { useActionState, useState, type FormEvent } from "react";
 import { submitContact } from "@/app/actions";
 import { buttonBase, buttonVariants } from "@/components/ui/ButtonLink";
+import { ResponsiveText } from "@/components/ui/ResponsiveText";
+import { contactForm, type FrameCopy } from "@/data/content";
 import {
   contactFields,
   contactLimits,
@@ -14,11 +16,17 @@ import {
   type ContactFormState,
 } from "@/lib/contact";
 import { cn } from "@/lib/cn";
+import { DESKTOP_QUERY, useMediaQuery } from "@/lib/use-media-query";
 
 const initialState: ContactFormState = { status: "idle" };
+const copy = contactForm;
 
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(submitContact, initialState);
+  // Placeholders are attributes, so they can't switch with CSS like the visible copy does.
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  const frame = isDesktop ? "desktop" : "mobile";
+  const inputLang = isDesktop ? undefined : copy.mobileLang;
   // Client-side errors give instant feedback; the server action validates again.
   const [clientErrors, setClientErrors] = useState<ContactErrors | null>(null);
 
@@ -59,18 +67,19 @@ export function ContactForm() {
     >
       <div>
         <h3 id="contact-form-title" className="font-display text-h3 font-bold text-ink">
-          Contact us
+          {copy.title}
         </h3>
         <p id="contact-form-description" className="mt-2 text-small text-body">
-          Fill out the fields and we will get in touch.
+          <ResponsiveText {...copy.description} from="lg" mobileLang={copy.mobileLang} />
         </p>
       </div>
 
       <div className="flex flex-col gap-5">
         <FormField
           field="name"
-          label="Full name"
-          placeholder="Your name"
+          label={copy.fields.name.label}
+          placeholder={copy.fields.name.placeholder[frame]}
+          lang={inputLang}
           autoComplete="name"
           maxLength={contactLimits.name.max}
           defaultValue={values?.name}
@@ -79,9 +88,10 @@ export function ContactForm() {
         />
         <FormField
           field="email"
-          label="Email"
+          label={copy.fields.email.label}
           type="email"
-          placeholder="youremail@example.com"
+          placeholder={copy.fields.email.placeholder[frame]}
+          lang={inputLang}
           autoComplete="email"
           inputMode="email"
           defaultValue={values?.email}
@@ -90,8 +100,9 @@ export function ContactForm() {
         />
         <FormField
           field="message"
-          label="Your question"
-          placeholder="Tell us how we can help..."
+          label={copy.fields.message.label}
+          placeholder={copy.fields.message.placeholder[frame]}
+          lang={inputLang}
           multiline
           maxLength={contactLimits.message.max}
           defaultValue={values?.message}
@@ -106,7 +117,7 @@ export function ContactForm() {
           disabled={pending}
           className={cn(buttonBase, buttonVariants.primary, "w-full disabled:cursor-wait disabled:opacity-80")}
         >
-          {pending ? "Sending…" : "Send message"}
+          <ResponsiveText {...(pending ? copy.sending : copy.submit)} from="lg" mobileLang={copy.mobileLang} />
         </button>
         <p role="status" className="text-center text-small text-success empty:hidden">
           {showSuccess && `Thanks, ${state.name}! Your message is on its way. We reply within 24 hours.`}
@@ -118,8 +129,10 @@ export function ContactForm() {
 
 type FormFieldProps = {
   field: ContactField;
-  label: string;
+  label: FrameCopy;
   placeholder: string;
+  /** Language of the placeholder, set while the mobile (Portuguese) copy is shown. */
+  lang?: string;
   error?: string;
   defaultValue?: string;
   multiline?: boolean;
@@ -137,6 +150,7 @@ function FormField({
   field,
   label,
   placeholder,
+  lang,
   error,
   defaultValue,
   multiline = false,
@@ -156,6 +170,7 @@ function FormField({
     id,
     name: field,
     placeholder,
+    lang,
     defaultValue,
     maxLength,
     required: true,
@@ -167,7 +182,7 @@ function FormField({
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className="text-small font-bold text-ink">
-        {label}
+        <ResponsiveText {...label} from="lg" mobileLang={contactForm.mobileLang} />
       </label>
       {multiline ? (
         <textarea
