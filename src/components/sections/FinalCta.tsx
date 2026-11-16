@@ -73,10 +73,13 @@ export function FinalCta() {
           >
             {finalCta.title}
           </h2>
-          <p className="mt-4 text-lead-sm text-body lg:text-lead">{finalCta.description}</p>
-          <div className="mt-10 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
-            <ButtonLink href={finalCta.primary.href}>{finalCta.primary.label}</ButtonLink>
-            <ButtonLink href={finalCta.secondary.href} variant="secondary">
+          {/* Spacing reproduces the design's fixed-height frames, which the text slightly overflows. */}
+          <p className="mt-4 text-lead-sm text-body lg:mt-[14px] lg:text-lead">{finalCta.description}</p>
+          <div className="mt-[38px] flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row lg:mt-[39px]">
+            <ButtonLink href={finalCta.primary.href} className="h-[52.5px] py-0">
+              {finalCta.primary.label}
+            </ButtonLink>
+            <ButtonLink href={finalCta.secondary.href} variant="secondary" className="h-[52.5px] py-0">
               {finalCta.secondary.label}
             </ButtonLink>
           </div>

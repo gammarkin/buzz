@@ -56,6 +56,7 @@ export function ContactForm() {
     setClientErrors(rest);
   }
 
+  // Padding is 1px less than the design's because Figma draws the border inside the box.
   return (
     <form
       action={formAction}
@@ -63,7 +64,7 @@ export function ContactForm() {
       noValidate
       aria-labelledby="contact-form-title"
       aria-describedby="contact-form-description"
-      className="flex flex-col gap-6 rounded-2xl border border-line bg-white px-5 py-6 shadow-card sm:p-8 lg:w-[540px] lg:shrink-0 lg:p-10"
+      className="flex flex-col gap-6 rounded-2xl border border-line bg-white px-[19px] py-[23px] shadow-card sm:p-[31px] lg:w-[540px] lg:shrink-0 lg:p-[39px]"
     >
       <div>
         <h3 id="contact-form-title" className="font-display text-h3 font-bold text-ink">
@@ -188,7 +189,7 @@ function FormField({
         <textarea
           {...shared}
           rows={3}
-          className={cn(controlClassName, stateClassName, "min-h-[100px] resize-none py-3.5 lg:min-h-[120px]")}
+          className={cn(controlClassName, stateClassName, "h-[100px] resize-none py-3.5 lg:h-[120px]")}
         />
       ) : (
         <input
