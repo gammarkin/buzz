@@ -44,8 +44,9 @@ export function Header({ links, login, cta }: HeaderProps) {
 
   const close = () => setOpen(false);
 
+  // Scrolls with the page like the design; "relative" anchors the mobile menu panel.
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-cream">
+    <header className="relative z-50 border-b border-line bg-cream">
       <div className="mx-auto grid h-[68px] w-full max-w-[1280px] grid-cols-[1fr_auto] items-center px-5 md:px-10 lg:h-[69px] lg:grid-cols-[1fr_auto_1fr] xl:px-20">
         <Link href="/" aria-label="Luma, back to top" className="justify-self-start rounded-sm text-ink">
           <Logo aria-hidden />
