@@ -36,9 +36,9 @@ src/
     layout/            Header (mobile menu), Footer
     sections/          one component per page section
     contact/           ContactForm (client component)
-    ui/                Button, Container, Eyebrow, SectionHeader, AvatarStack, Logo, icons
+    ui/                Button, Container, Eyebrow, SectionHeader, AvatarStack, ResponsiveText, Logo, icons
   data/content.ts      typed mock content for every section
-  lib/                 contact validation (+ tests), site config, class name helper
+  lib/                 contact validation (+ tests), media query hook, site config, class name helper
 ```
 
 ## Key decisions
@@ -55,23 +55,25 @@ src/
 - **Motion.** Motion is limited to short hover/focus transitions and the menu reveal. All of it is disabled under `prefers-reduced-motion`, and smooth scrolling is only enabled when motion is allowed.
 - **Metadata & SEO.** Title, description, canonical URL, Open Graph and Twitter tags, plus a generated Open Graph image (`next/og`, rendered with the brand font). Also JSON-LD (`EducationalOrganization`), `robots.txt`, `sitemap.xml` and an SVG favicon.
 
-## Design interpretations
+## Design fidelity
 
-Some details in the Figma file were inconsistent or missing, so I made these choices:
+The page reproduces both Figma frames exactly, including a few details that could be improved. They are part of the design, so they were implemented as they are. In a real project I would raise them with the design team to confirm, and they would stay as designed until then:
 
-- The mobile contact form copy is in Portuguese, but the rest of the page is in English. I used English everywhere.
-- All three desktop steps read "Step 01". I numbered them 01/02/03, as in the mobile frame.
-- The desktop and mobile frames disagree in a few places:
-  - Step 2 copy: mobile adds "actually". I used the desktop copy.
-  - Step 2 icon: solid peach on desktop, translucent coral on mobile. Each breakpoint follows its own frame.
-  - "The people" paragraph: grey on desktop, dark on mobile. I used grey on both.
-- The "Meet international students & teachers" paragraph is lorem ipsum. I replaced it with real copy of similar length.
-- Two color pairs from the design are 4.45:1, just below WCAG AA (4.5:1): `#e7e7ec` on the blue section and `#6d7384` on the cream background. Those instances use white and `#656770` (both already in the palette) instead.
+- The "Meet international students & teachers" paragraph is lorem ipsum.
+- The mobile contact form is in Portuguese, while the rest of the page is in English. The mobile copy is marked with `lang="pt-BR"` so screen readers pronounce it correctly.
+- The desktop frame labels all three steps "Step 01"; the mobile frame numbers them 01/02/03.
+- Two color pairs are 4.45:1, just below WCAG AA (4.5:1): `#e7e7ec` on the blue section and `#6d7384` on the cream background. This is the only failing Lighthouse check.
+- The two frames differ in the step 2 copy (mobile adds "actually"), the step 2 icon color and the color of "The people" paragraph.
+
+Where the frames use different copy, `ResponsiveText` renders both versions and shows one with CSS, at the breakpoint where that section's layout changes. The hidden version uses `display: none`, so screen readers only announce the visible one. Form placeholders are attributes, so they switch through a small `useMediaQuery` hook instead.
+
+## Not covered by the design
+
+The brief asks for a reasonable choice where the design is unclear:
+
 - The open state of the mobile menu isn't designed. It opens as a dropdown panel with the nav links and both actions. Escape closes it and returns focus to the toggle, and it also closes on link click or when the viewport reaches desktop width.
 - Link destinations aren't defined. Nav and CTA links go to the most relevant in-page section. "Terms" and "Privacy" are placeholders (`#`).
-- Validation error and success states aren't designed. I added a red and a green for them, kept out of the main palette.
-- The header is sticky, which helps on a page this long.
-- The Figma "Support" footer column frame is truncated, so the real mobile footer is about 12px taller than the frame.
+- Validation error and success states aren't designed. They use a red and a green outside the main palette, with messages in English.
 
 ## Accessibility
 
@@ -81,6 +83,7 @@ Some details in the Figma file were inconsistent or missing, so I made these cho
 - Descriptive `alt` text for content photos. Decorative images and shapes use `alt=""` / `aria-hidden`.
 - Category cards use one stretched link per card, with screen-reader text ("Explore Product Design courses")
 - Form labels, inline error messages and a live region for the result
+- Color contrast meets WCAG AA everywhere except the two design color pairs listed under "Design fidelity"
 
 ## Results
 
@@ -88,16 +91,20 @@ Lighthouse 13.6 on the live preview (Vercel):
 
 |         | Performance | Accessibility | Best Practices | SEO |
 | ------- | ----------- | ------------- | -------------- | --- |
-| Desktop | 100         | 100           | 100            | 100 |
-| Mobile  | 93          | 100           | 100            | 100 |
+| Desktop | 100         | 96            | 100            | 100 |
+| Mobile  | 98          | 96            | 100            | 100 |
 
-Mobile (simulated slow 4G, 4× CPU): LCP 2.3 s, CLS 0, TBT around 100–270 ms depending on machine load. On a local production build (`npm run build && npm start`), the mobile score is 92–94 with an LCP of about 3.0 s.
+Accessibility is 96 only because of the design's color contrast (see "Design fidelity"); every other accessibility audit passes. Mobile (simulated slow 4G, 4× CPU): LCP 2.2 s, CLS 0, TBT around 80–270 ms depending on machine load. On a local production build (`npm run build && npm start`), the mobile score is 92–94 with an LCP of about 3.0 s.
+
+Every text layer in both Figma frames (104 desktop, 98 mobile) was checked against the rendered page through the Figma API.
 
 For visual fidelity, I exported every section from Figma as PNG and compared it side by side with a headless Chrome screenshot of the same section at 402 and 1280px. This caught details that measurements alone missed, such as the 12° rotated shapes and heading line breaks. Most section heights now match the frames exactly or within 1–4px. I also checked 768 and 1024px manually. I also tested keyboard navigation and the whole form flow (empty submit, invalid email, success). The unit tests cover the shared validation rules.
 
 ## Known gaps
 
 - There is no backend: the form submission is mocked.
+- Two color pairs from the design are below WCAG AA contrast (see "Design fidelity").
+- On small screens, the form placeholders show the desktop (English) copy until JavaScript loads.
 - Mobile LCP (2.3 s live, about 3.0 s locally, on simulated slow 4G) is mostly framework JavaScript and font bytes. Further trimming client JavaScript would be the next step.
 - Only Chromium browsers (Chrome, Edge) were tested. Safari and Firefox were not checked on real devices.
 - No Storybook. Tests cover the form logic only, not the components visually.
@@ -111,7 +118,7 @@ I used **Claude Code** as a pair programmer:
 - Exporting and optimizing the images
 - Scaffolding the components and writing the README draft
 
-To check the results, I compared rendered element sizes in the browser against the Figma frames at 402 and 1280px and ran Lighthouse on the production build, then fixed the contrast and LCP issues it found. I also tested the interactions by hand, kept ESLint and `tsc` clean, added unit tests for the validation logic, and reviewed every component before committing.
+To check the results, I compared rendered element sizes in the browser against the Figma frames at 402 and 1280px and ran Lighthouse on the production build, then fixed the LCP issues it found and documented the contrast issue that comes from the design. I also tested the interactions by hand, kept ESLint and `tsc` clean, added unit tests for the validation logic, and reviewed every component before committing.
 
 ## Time spent
 
