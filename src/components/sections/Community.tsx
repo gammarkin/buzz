@@ -22,7 +22,8 @@ export function Community() {
           >
             {community.title}
           </h2>
-          <p className="mt-6 text-lead-sm text-body lg:mt-8 lg:text-lead">{community.description}</p>
+          {/* Dark in the mobile frame, grey in the desktop one. */}
+          <p className="mt-6 text-lead-sm text-ink lg:mt-8 lg:text-lead lg:text-body">{community.description}</p>
           <ButtonLink href={community.cta.href} variant="secondary" className="mt-6 lg:mt-8">
             {community.cta.label}
           </ButtonLink>

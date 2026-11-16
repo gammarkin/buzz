@@ -42,8 +42,12 @@ export type StepIcon = "focus" | "experience" | "practice";
 
 export type Step = {
   number: string;
+  /** Number shown from the md breakpoint up; the desktop frame labels every step "Step 01". */
+  desktopNumber?: string;
   title: string;
   description: string;
+  /** Copy shown below the md breakpoint when the mobile frame differs from the desktop one. */
+  mobileDescription?: string;
   icon: StepIcon;
 };
 
@@ -167,12 +171,15 @@ export const steps: Step[] = [
   },
   {
     number: "02",
+    desktopNumber: "01",
     title: "Learn from experience",
     description: "Follow concise lessons created by professionals who use these skills.",
+    mobileDescription: "Follow concise lessons created by professionals who actually use these skills.",
     icon: "experience",
   },
   {
     number: "03",
+    desktopNumber: "01",
     title: "Put it into practice",
     description: "Every course includes practical exercises designed to turn knowledge into action.",
     icon: "practice",

@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { ResponsiveText } from "@/components/ui/ResponsiveText";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { sectionIds, steps, type Step, type StepIcon } from "@/data/content";
 
@@ -41,9 +42,17 @@ function StepItem({ step, isLast }: StepItemProps) {
     <li className="relative">
       <StepBadge icon={step.icon} />
       {/* The 1–2px bottom paddings mirror the design's text frames, which are slightly taller than the text. */}
-      <p className="mt-6 pb-px text-eyebrow text-body uppercase">Step {step.number}</p>
+      <p className="mt-6 pb-px text-eyebrow text-muted uppercase">
+        <ResponsiveText
+          mobile={`Step ${step.number}`}
+          desktop={`Step ${step.desktopNumber ?? step.number}`}
+          from="md"
+        />
+      </p>
       <h3 className="mt-2 pb-0.5 font-display text-h3-sm font-bold text-ink lg:pb-px lg:text-h3">{step.title}</h3>
-      <p className="mt-3 text-small text-body lg:text-copy">{step.description}</p>
+      <p className="mt-3 text-small text-body lg:text-copy">
+        <ResponsiveText mobile={step.mobileDescription ?? step.description} desktop={step.description} from="md" />
+      </p>
       {!isLast && (
         <span
           aria-hidden="true"
