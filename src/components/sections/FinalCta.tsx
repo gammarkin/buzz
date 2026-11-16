@@ -29,7 +29,6 @@ const ARTBOARD_WIDTH = 1280;
 const decorations: Decoration[] = [
   { x: 22, y: 16, size: 108, className: "rounded-full border-2 border-peach" },
   { x: 56, y: 373, size: 120, className: "rounded-full bg-peach" },
-  { x: 1064, y: 468, size: 40, className: "rounded-full bg-peach" },
   { x: 1154.5, y: -13.5, size: 115, rotate: 12, className: "rounded-lg bg-peach" },
   { x: -28, y: 235, size: 56, rotate: 12, className: "rounded-lg bg-peach" },
   { x: 1208, y: 429, size: 32, className: "rounded-full border-2 border-peach" },
