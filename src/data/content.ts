@@ -203,9 +203,9 @@ export const stats: Stat[] = [
 export const community = {
   eyebrow: "The people",
   title: "Meet international students & teachers",
-  // The design uses lorem ipsum here; replaced with copy of a similar length.
+  // Placeholder copy kept exactly as in the design (pending final copy from the design team).
   description:
-    "Learn alongside curious people from all over the world. Our teachers are designers, engineers and founders who bring real projects into every lesson, and our community keeps you going between them.",
+    "Morbi sit egestas dignissim pharetra, sed amet. Tempus justo senectus risus ac vel, velit, nunc. Eget commodo eget in aliquam facilisi facilisi nec magna hendrerit. Placerat ipsum sit tellus urna, faucibus aenean lorem faucibus integer.",
   cta: { label: "Explore teachers and students", href: `#${sectionIds.contact}` },
 };
 
